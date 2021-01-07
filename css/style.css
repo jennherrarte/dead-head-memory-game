@@ -3,14 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 
+}
+
+    html {
+      height: 100%;
+  
 
 }
 
 body {
-    background-color: white;
-    height: 100vh;
-    font-family: 'Josefin Sans', sans-serif;
-    font-family: 'Sirin Stencil', cursive;
+
+  background-color: #fc9842;
+  background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+  height: 100vh;
+
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Sirin Stencil', cursive;
+margin: 0;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
 
 h1 {
@@ -18,7 +29,8 @@ h1 {
     justify-content: center;
     margin-top: 20px;
     font-size: 60px;
-    color: red;
+    color: #FFFFFF;
+    
 
     
 }
@@ -26,42 +38,51 @@ h1 {
 .jerry-vector {
     width: 140px;
     height: 150px;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
+    position: absolute;
+   
+    
+ 
   
 }
 
 p {
   font-family: 'Josefin Sans', sans-serif;;
-    padding: 30px;
-    text-align: center;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 25px;
-    
+  color: #FFFFFF;
+  margin: auto;
+  font-size: 25px;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+
+ 
 }
 
-.top-container {
 
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    margin-left: 200px;
-    margin-right: 200px;
-    
+.top-container {
+display: flex;
+position: relative;
+justify-content: center;
+align-items: center;
+margin-top: 50px;
+margin-bottom: 50px;
+margin-left: 150px;
+margin-right: 150px;
 }
 
 
 
 .memory-game {
-  width: 700px;
-  height: 680px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
+width: 700px;
+height: 680px;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+perspective: 1000px;
+
+
+  
 } 
 
 .memory-card {
@@ -70,6 +91,9 @@ p {
   margin: 5px;
   position: relative;
   transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+
 }
 
 .memory-card:active {
@@ -85,11 +109,22 @@ transition: transform .2s
  height: 100%;
  position: absolute;
  border-radius: 5px;
+ backface-visibility: hidden;
 }
 
 .front-face {
-  background-color: white;
+  background-color: #001f3f;
+  /* #FFFFF0; */
   border: solid;
+  border-width: 3px;
+  border-color: #FFDC00;
+  
 
 }
 
+.memory-card.flip {
+  transform: rotateY(180deg)
+}
+.back-face {
+  transform: rotateY(180deg)
+}
