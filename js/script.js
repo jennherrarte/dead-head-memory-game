@@ -1,95 +1,144 @@
-let memoryCards = document.querySelectorAll('.memory-card')
 
+
+const cards = document.querySelectorAll('.memory-card');
+
+
+
+let hasFlippedCard = false;
+let lockBoard = false;
 let firstCard, secondCard;
-
-
-const memoryGame = $('.memory-game')
-let compScore = 0
 let userScore = 0
+let compScore = 0
+let $userScore = $('.userScore').text(userScore)
+let $compScore = $('.compScore').text(compScore)
 
 
-$('.memory-card').click(function (event) {
-    let cardOne, cardTwo;
-   let index = $(this).index()
-    cardOne = $('.memory-card').eq(index).addClass('flip')
-   cardTwo = $('.memory-card').eq(index).addClass('flip')
-    console.log(cardOne)
-   //checkForMatch(cardOne, cardTwo)
-
-});
+let player1 = false
+let player2 = false
 
 
 
 
-function checkForMatch(cardOne, cardTwo) {
-    if((cardOne).attr('data-framework') === (cardTwo).attr('data-framework')) {
-        console.log('jenn')
-    } else {
-        $(cardOne).removeClass('flip')
-        $(cardTwo).removeClass('flip')
+function compflipCard() {
+    if (lockBoard) return;
+    player2 = true
+    firstCard = cards[Math.floor(Math.random() * $('.memory-card').length)]
+    secondCard = cards[Math.floor(Math.random() * $('.memory-card').length)]
+
+    if (secondCard === firstCard || firstCard.classList.contains('flip') || secondCard.classList.contains('flip') ) {
+        compflipCard() 
+        return;
     }
-}
 
-
-// i want to add the flip class to the div i click on // 
-
-
-
-
-
-
-
-
-// generating computer cards
-
-function compCards() {
-let random1, random2;
-
-    random1 = Math.floor(Math.random() * $('.memory-card').length);
-    random2 = Math.floor(Math.random() * $('.memory-card').length);
-   
-    if(random2 === random1) {
-        compCards()
-        return
-    }
-   else {
-
-        $('.memory-card').eq(random1).addClass('flip')
-        $('.memory-card').eq(random2).addClass('flip')
-        checkCompMatch(random1, random2)
+   else if ((secondCard != firstCard) &&  (!firstCard.classList.contains('flip')) && (!secondCard.classList.contains('flip'))) {
+  
+        firstCard.classList.add('flip')
+        secondCard.classList.add('flip')
+        checkForMatch(firstCard, secondCard);
     
+}
+
+
+
+}
+
+
+
+function flipCard() {
+    player1 = true
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
+  this.classList.add('flip');
+ 
+
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
+    firstCard = this;
+
+    return;
+  }
+
+  // second click
+  secondCard = this;
+
+  checkForMatch(firstCard, secondCard);
+  
+  setTimeout(() => {
+  compflipCard()
+  }, 3000);
+
+  
+ 
+}
+
+// counter only adding to my score
+// need to disable matching cards completeiny for compcards function 
+
+
+
+function checkForMatch(firstCard, secondCard) {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  isMatch ? disableCards(firstCard, secondCard) : unflipCards(firstCard, secondCard);
+
+
+
+  if(isMatch === true && player1 === true) {
+    userScore++
+    $userScore = $('.userScore').text(userScore)
     
-    
-   }
-   
+
+  }
+
+  else if(isMatch === true && player2 === true) {
+    compScore++
+    $compScore = $('.compScore').text(compScore)
+
+  }
+ 
+
+
 }
 
-// checking for comuputer card match // 
 
-function checkCompMatch(random1, random2) {
-    if($('.memory-card').eq(random1).attr('data-framework') === $('.memory-card').eq(random2).attr('data-framework')) {
-        console.log('jenn')
-      
-    } else {
-        $('.memory-card').eq(random1).remove('flip')
-        $('.memory-card').eq(random2).remove('flip')
-       
-    }
+
+
+
+
+function disableCards(firstCard, secondCard) {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  resetBoard();
 }
 
-// blink function //
 
-function blink_text() {
 
-    $('.compScore').fadeOut(500);
-    $('.compScore').fadeIn(500);
-    setInterval(blink_text, 1000);
+
+
+function unflipCards(firstCard, secondCard) {
+  lockBoard = true;
+
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
+    resetBoard();
+  }, 1500);
 }
 
-   
-//while combined pairs is less than 7, keep going 
-// tie modal
-// loss modal
-// win modal
-// play again
-// shuffle board
+
+
+
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+

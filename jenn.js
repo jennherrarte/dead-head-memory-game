@@ -143,3 +143,189 @@ function userblink_text() {
 
 compCards()
 
+
+
+// OLD
+
+
+// let memoryCards = document.querySelectorAll('.memory-card')
+// let compScore = 0
+// let userScore = 0
+// let firstCard, secondCard;
+
+// let $userScore = $('.userScore').text(userScore)
+
+// let $compScore = $('.compScore').text(compScore)
+
+// let compCard1, compCard2;
+
+// const memoryGame = $('.memory-game')
+
+
+
+// // let hasFlippedCard = false 
+
+// // let cardOne, cardTwo
+
+
+// // function jenn() {
+
+    
+// // $('.memory-card').click(function (event) {
+
+
+// //    $(this).addClass('flip')
+
+// //    if ($(this).get(0) === cardTwo) return;
+  
+// //    if(!hasFlippedCard) {
+// //     cardOne = $(this).get(0)
+// //     hasFlippedCard = true
+// //     return;
+     
+// //    }
+    
+// //    cardTwo = $(this).get(0)
+   
+   
+// //    checkForMatch(cardOne, cardTwo)
+   
+
+  
+
+  
+  
+
+
+// // })
+
+
+// // }
+
+
+
+
+// // function checkForMatch(cardOne, cardTwo) {
+// //     if($(cardOne).attr('data-framework') === $(cardTwo).attr('data-framework')) {
+// //         $(cardOne).off('click')
+// //         $(cardTwo).off('click')
+
+// //         userScore++
+// //         $userScore = $('.userScore').text(userScore)
+// //         resetBoard()
+// //         console.log('jenn')
+// //     } else {
+
+// //         //setTimeout(() => {
+           
+// //         $(cardOne).removeClass('flip')
+// //         $(cardTwo).removeClass('flip')
+      
+    
+     
+// //        // }, 1500);
+// //     }
+
+
+// //     }
+
+
+
+
+
+
+
+
+
+// // i want to add the flip class to the div i click on // 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // function resetBoard() {
+// //     hasFlippedCard = false
+// //     [firstCard, secondCard] = [null, null]
+// // }
+
+
+
+
+
+
+// // blink function //
+
+// // function blink_text() {
+
+// //     $('.compScore').fadeOut(500);
+// //     $('.compScore').fadeIn(500);
+// //     setInterval(blink_text, 1000);
+// // }
+
+   
+
+
+
+
+
+
+
+// // COMPUTER MATCHES // 
+
+
+// // generating computer cards
+
+// function compCards() {
+
+//     let random1, random2;
+
+//         random1 = Math.floor(Math.random() * $('.memory-card').length);
+//         random2 = Math.floor(Math.random() * $('.memory-card').length);
+    
+    
+//         if(random2 === random1) {
+//             compCards()
+//             return
+//         }
+//        else {
+    
+//            compCard1 =  $('.memory-card').eq(random1)
+//            compCard2 = $('.memory-card').eq(random2)
+    
+//            $(compCard1).addClass('flip')
+//            $(compCard2).addClass('flip')
+//           checkCompMatch(compCard1, compCard2)
+          
+//        }
+        
+//     }
+
+
+// function checkCompMatch(compCard1, compCard2) {
+//     let isMatch = $(compCard1).attr('data-framework') === $(compCard2).attr('data-framework')
+//     if(isMatch) {
+//         compScore++
+//         $compScore = $('.compScore').text(compScore)
+//         console.log('jenn')
+       
+      
+//     } if(!isMatch) {
+//         setTimeout(() => {
+           
+//             $(compCard1).removeClass('flip')
+//             $(compCard2).removeClass('flip')
+         
+//             }, 1000); 
+//         }
+       
+//     }
+
+
