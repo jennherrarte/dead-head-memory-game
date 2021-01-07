@@ -128,3 +128,72 @@ transition: transform .2s
 .back-face {
   transform: rotateY(180deg)
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    align-items: center;
+    margin: auto;
+    font-size: 25px;
+    color:  #FFFFFF;
+    padding-top: 10px;
+    
+
+}
+
+.top-container {
+  display: flex;
+margin: auto;
+padding-top: 25px;
+padding-bottom: 25px;
+
+
+
+}
+  .jerry-vector {
+  width: 50px;
+  height: 60px;
+ 
+
+ 
+ 
+  
+
+
+}
+
+p {
+font-family: 'Josefin Sans', sans-serif;;
+color: #FFFFFF;
+margin: auto;
+font-size: 10px;
+
+
+
+}
+
+
+.memory-game {
+  width: 300px;
+  height: 380px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  justify-content: center;
+
+}
+  .memory-card {
+    width: 100px;
+    height: 120px;
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+  
+  }
+
+
+}
