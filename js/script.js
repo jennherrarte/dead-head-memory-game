@@ -1,124 +1,95 @@
+let memoryCards = document.querySelectorAll('.memory-card')
 
-
-// NOTE Variables // 
-
-let hasFlippedCard = false;
 let firstCard, secondCard;
-let lockBoard = false;
-let $userScore = $('.userScore')
-let $compScore = $('.compScore')
-let totalPairs = 6;
-
-const memoryCards = document.querySelectorAll('.memory-card')
-
-// NOTE JS //
 
 
-memoryCards.forEach(card => card.addEventListener('click', flipCard))
-
-// FLIPPING CARDS AND CHECKING FOR MATCHES
-
-function flipCard() {
-    if (lockBoard) return;
-    if (this === firstCard) return;
-
-    this.classList.add('flip');
-
-    if(!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = this;
-        
-        return;
-
-    }
-        secondCard = this;
-        checkForMatch(firstCard, secondCard, $userScore);
-
-       console.log(this)
-}
+const memoryGame = $('.memory-game')
+let compScore = 0
+let userScore = 0
 
 
-// CHECK FOR MATCH 
+$('.memory-card').click(function (event) {
+    let cardOne, cardTwo;
+   let index = $(this).index()
+    cardOne = $('.memory-card').eq(index).addClass('flip')
+   cardTwo = $('.memory-card').eq(index).addClass('flip')
+    console.log(cardOne)
+   //checkForMatch(cardOne, cardTwo)
 
-function checkForMatch(firstCard, secondCard, $player) {
-   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-    isMatch ? disableCards(firstCard, secondCard) : unflipCards(firstCard, secondCard); 
+});
 
-    if (isMatch === true) {
-        
-        $player.text($player.val() + 1);
-        
+
+
+
+function checkForMatch(cardOne, cardTwo) {
+    if((cardOne).attr('data-framework') === (cardTwo).attr('data-framework')) {
+        console.log('jenn')
+    } else {
+        $(cardOne).removeClass('flip')
+        $(cardTwo).removeClass('flip')
     }
 }
 
-// DISABLE CARDS IF IT IS A MATCH 
 
-function disableCards(firstCard, secondCard) {
-    firstCard.removeEventListener('click', flipCard)
-    secondCard.removeEventListener('click', flipCard)
-    
-    resetBoard();
-}
-
-// UNFLIP CARDS IF THEY ARE NOT A MATCH AND CLEARING PICK ONE AND TWO
-
-function unflipCards(firstCard, secondCard) {
-    lockBoard = true;
-
-    setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip')
-
-        resetBoard();
-    }, 1500);
-}
-
-// RESET BOARD 
-
-function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false]
-    [firstCard, secondCard] = [null, null]
-}
-
-// SHUFFLE BOARD FOR ANOTHER ROUND
-
-(function shuffle() {
-    memoryCards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
-    card.style.order = randomPos
-    });
-})();
+// i want to add the flip class to the div i click on // 
 
 
 
-// make sure math random is inclusive 
-// function compCards() {
-//    console.log(firstCard)
-//    console.log(secondCard)
-//    firstCard = $( ".memory-card" ).get( Math.floor(Math.random() * 12) + 1); 
-//    secondCard = $( ".memory-card" ).get( Math.floor(Math.random() * 12) + 1);
-    
-//    setTimeout(() => {
-//     firstCard.classList.add('flip') 
-//     secondCard.classList.add('flip');
-//     checkForMatch(firstCard, secondCard, $compScore)
-//     }, 2500);
+
+
+
+
+
+// generating computer cards
+
+function compCards() {
+let random1, random2;
+
+    random1 = Math.floor(Math.random() * $('.memory-card').length);
+    random2 = Math.floor(Math.random() * $('.memory-card').length);
    
+    if(random2 === random1) {
+        compCards()
+        return
+    }
+   else {
+
+        $('.memory-card').eq(random1).addClass('flip')
+        $('.memory-card').eq(random2).addClass('flip')
+        checkCompMatch(random1, random2)
+    
+    
+    
+   }
    
-// }
+}
+
+// checking for comuputer card match // 
+
+function checkCompMatch(random1, random2) {
+    if($('.memory-card').eq(random1).attr('data-framework') === $('.memory-card').eq(random2).attr('data-framework')) {
+        console.log('jenn')
+      
+    } else {
+        $('.memory-card').eq(random1).remove('flip')
+        $('.memory-card').eq(random2).remove('flip')
+       
+    }
+}
+
+// blink function //
 
 function blink_text() {
 
     $('.compScore').fadeOut(500);
     $('.compScore').fadeIn(500);
+    setInterval(blink_text, 1000);
 }
-setInterval(blink_text, 1000);
 
-
-
-
-blink_text()
-
-var myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
-
-console.log(myModal)
+   
+//while combined pairs is less than 7, keep going 
+// tie modal
+// loss modal
+// win modal
+// play again
+// shuffle board
