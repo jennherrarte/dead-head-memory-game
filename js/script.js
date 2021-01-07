@@ -22,6 +22,7 @@ let player2 = false
 function compflipCard() {
     if (lockBoard) return;
     player2 = true
+    player1 = false
     firstCard = cards[Math.floor(Math.random() * $('.memory-card').length)]
     secondCard = cards[Math.floor(Math.random() * $('.memory-card').length)]
 
@@ -46,6 +47,7 @@ function compflipCard() {
 
 function flipCard() {
     player1 = true
+    player2 = false
   if (lockBoard) return;
   if (this === firstCard) return;
 
@@ -73,8 +75,6 @@ function flipCard() {
  
 }
 
-// counter only adding to my score
-// need to disable matching cards completeiny for compcards function 
 
 
 
@@ -92,7 +92,7 @@ function checkForMatch(firstCard, secondCard) {
 
   }
 
-  else if(isMatch === true && player2 === true) {
+  if(isMatch === true && player2 === true) {
     compScore++
     $compScore = $('.compScore').text(compScore)
 
