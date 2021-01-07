@@ -149,3 +149,13 @@ cards.forEach(card => card.addEventListener('click', flipCard));
   });
 })();
 
+// // blink function //
+
+ function blink_text() {
+
+   $('.compScore').fadeOut(500);
+   $('.compScore').fadeIn(500);
+  setInterval(blink_text, 1000);
+ }
+
+   
