@@ -55,6 +55,8 @@ function flipCard() {
   }, 2000);
 }
 
+// NOTE CHECK FOR CARD MATCHES //
+
 function checkForMatch(firstCard, secondCard) {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
@@ -120,8 +122,11 @@ function resetBoard() {
 
  function blink_text() {
   for (i=0; i < 2; i++) {
-    $('.compScore').fadeOut(300);
-    $('.compScore').fadeIn(400);
+      $('.compScore').fadeOut(300);
+      $('.compScore').fadeIn(400);
+      setInterval(500);
+      $('.jerry-vector').fadeOut(300);
+      $('.jerry-vector').fadeIn(400);
     setInterval(500);
   }
  }
@@ -130,6 +135,9 @@ function resetBoard() {
   for (i=0; i < 2; i++) {
       $('.userScore').fadeOut(300);
       $('.userScore').fadeIn(400);
+      setInterval(500);
+      $('.jerry-vector').fadeOut(300);
+      $('.jerry-vector').fadeIn(400);
     setInterval(500);
   }
  }
@@ -162,6 +170,7 @@ function showModal() {
   });
   })
 }
+
 
 
 
