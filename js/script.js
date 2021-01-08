@@ -55,14 +55,14 @@ function flipCard() {
  
 
   if (!hasFlippedCard) {
-    // first click
+
     hasFlippedCard = true;
     firstCard = this;
 
     return;
   }
 
-  // second click
+
   secondCard = this;
 
   checkForMatch(firstCard, secondCard);
@@ -86,19 +86,28 @@ function checkForMatch(firstCard, secondCard) {
 
 
   if(isMatch === true && player1 === true) {
-    userScore++
+    userblink_text() 
+    userScore = userScore + 1
     $userScore = $('.userScore').text(userScore)
+    
     
 
   }
 
   if(isMatch === true && player2 === true) {
-    compScore++
+    blink_text()
+    compScore = compScore + 1
     $compScore = $('.compScore').text(compScore)
-
+    
   }
  
+  if(compScore + userScore === 6) {
 
+    setTimeout(() => {
+      showModal()
+      }, 1000);
+    return
+  }
 
 }
 
@@ -149,13 +158,70 @@ cards.forEach(card => card.addEventListener('click', flipCard));
   });
 })();
 
-// // blink function //
 
  function blink_text() {
-
+ 
+  for(i=0; i < 2; i++) {
+   
    $('.compScore').fadeOut(500);
    $('.compScore').fadeIn(500);
-  setInterval(blink_text, 1000);
+  setInterval(500);
+ 
+  }
+ 
  }
 
    
+
+ function userblink_text() {
+ 
+  for(i=0; i < 2; i++) {
+
+   $('.userScore').fadeOut(500);
+   $('.userScore').fadeIn(500);
+  setInterval(500);
+  }
+ 
+ }
+
+
+
+
+
+function showModal() {
+  
+  $(document).ready(function(){
+    $('#myModal').modal("show")
+  });
+
+if(userScore > compScore) {
+  $('.modal-message').text("You won! That's rad")
+}
+if(userScore === compScore) {
+  $('.modal-message').text("It's a tie! That's cool too")
+} if (compScore > userScore) {
+  $('.modal-message').text("Better luck next time...")
+}
+
+$( ".btn-primary").click(function() {
+  location.reload();
+  userScore = 0
+  compScore = 0
+  $compScore = $('.compScore').text(compScore)
+  $userScore = $('.userScore').text(userScore)
+  
+  $(document).ready(function(){
+    $('#myModal').modal("hide")
+  });
+
+})
+
+}
+
+
+
+
+
+
+
+
