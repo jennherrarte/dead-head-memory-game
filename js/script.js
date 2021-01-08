@@ -52,7 +52,7 @@ function flipCard() {
   checkForMatch(firstCard, secondCard);
   setTimeout(() => {
     compflipCard()
-  }, 3000);
+  }, 2000);
 }
 
 function checkForMatch(firstCard, secondCard) {
@@ -74,7 +74,7 @@ function checkForMatch(firstCard, secondCard) {
   if (compScore + userScore === 6) {
     setTimeout(() => {
       showModal()
-      }, 1000);
+      }, 1500);
     return;
   }
 }
@@ -120,19 +120,18 @@ function resetBoard() {
 
  function blink_text() {
   for (i=0; i < 2; i++) {
-    $('.compScore').fadeOut(500);
-    $('.compScore').fadeIn(500);
+    $('.compScore').fadeOut(300);
+    $('.compScore').fadeIn(400);
     setInterval(500);
   }
  }
 
  function userblink_text() {
   for (i=0; i < 2; i++) {
-      $('.userScore').fadeOut(500);
-      $('.userScore').fadeIn(500);
+      $('.userScore').fadeOut(300);
+      $('.userScore').fadeIn(400);
     setInterval(500);
   }
- 
  }
 
 // NOTE MODAL //
