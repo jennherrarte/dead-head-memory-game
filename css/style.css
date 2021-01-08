@@ -165,13 +165,13 @@ p {
     margin: auto;
     font-size: 25px;
     padding-top: 10px;
+    padding-bottom: 30px;
   }
 
   .top-container {
     display: flex;
-    margin: auto;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    flex-direction: row;
+    margin: 0;
   }
 
   .jerry-vector {
@@ -180,7 +180,7 @@ p {
   }
 
   p {
-    font-size: 20px;
+    font-size: 11px;
   }
 
   .memory-game {
@@ -189,8 +189,9 @@ p {
     height: 380px;
     margin: auto;
     flex-wrap: wrap;
-    perspective: 1000px;
     justify-content: center;
+    padding-top: 20px;
+    perspective: 1000px;
   }
 
   .memory-card {
@@ -203,8 +204,6 @@ p {
     transition: transform .5s;
   }
 }
-
-
 
 @media only screen and (min-width: 1600px) {
     .top-container {
