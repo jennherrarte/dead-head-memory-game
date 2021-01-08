@@ -16,19 +16,16 @@
     
    <!-- NOTE MAIN CSS -->
    <link rel="stylesheet" href="css/style.css">
-   
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- NOTE BOOTSTRAP JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     
-   
+    <!-- NOTE MODAL CODE -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 
     <!-- NOTE MAIN JS -->
-
 
     <script src="js/script.js" defer></script>
 
@@ -39,124 +36,94 @@
 
 <body>
 
+  <h1>DEAD HEAD MEMORY GAME</h1>
 
-      <!-- MODEL -->
+  <div class="top-container">
+    <p>YOU <br> Pairs: <span class="userScore">0</span></p>
+    <img src="photos/jerry-vector.png" class="jerry-vector" alt="Photo of  Jerry Garcia"> 
+    <p>COMPUTER<br> Pairs: <span class="compScore">0</span> </p>
+  </div>
 
+  <div class='memory-game'>
+    <div class="memory-card" data-framework="purple">
+      <img class="back-face" src="photos/1.jpeg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Purple Album Cover Game Card">
+    </div>
 
+    <div class="memory-card" data-framework="skullandroses">
+      <img class="back-face" src="photos/2.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Skull and Roses Album Cover Game Card">
+    </div> 
 
+    <div class="memory-card" data-framework="garcia">
+      <img class="back-face" src="photos/3.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Jerry Garcia Album Cover Game Card">
+    </div> 
 
-<h1>DEAD HEAD MEMORY GAME</h1>
+    <div class="memory-card" data-framework="skull">
+      <img class="back-face" src="photos/4.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Skull Album Cover Game Card">
+    </div> 
 
-<div class="top-container">
-  <p>YOU <br> Pairs: <span class="userScore">0</span></p>
-  <img src="photos/jerry-vector.png" class="jerry-vector" alt="..."> 
-  <p>COMPUTER<br> Pairs: <span class="compScore">0</span> </p>
-</div>
+    <div class="memory-card"  data-framework="eyes">
+      <img class="back-face" src="photos/5.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Eyes Album Cover Game  Card">
+    </div> 
 
-<div class='memory-game'>
+    <div class="memory-card" data-framework="ace">
+      <img class="back-face" src="photos/6.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Ace Album Cover Game Card">
+    </div> 
 
-  <div class="memory-card" data-framework="purple">
-   
-    <img class="back-face" src="photos/1.jpeg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
+    <div class="memory-card" data-framework="purple">
+      <img class="back-face" src="photos/1.jpeg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Purple Album Cover Game Card">
+    </div> 
+
+    <div class="memory-card" data-framework="skullandroses">
+      <img class="back-face" src="photos/2.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Skull and Roses Album Cover Game Card">
+    </div> 
+
+    <div class="memory-card" data-framework="garcia">
+      <img class="back-face" src="photos/3.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Jerry Garcia Album Cover Game Card">
+    </div>
+
+    <div class="memory-card" data-framework="skull">
+      <img class="back-face" src="photos/4.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Skull Album Cover Game Card">
+    </div> 
+
+    <div class="memory-card" data-framework="eyes">
+      <img class="back-face" src="photos/5.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Eyes Album Cover Game Card">
+    </div>  
+
+    <div class="memory-card" data-framework="ace">
+      <img class="back-face" src="photos/6.jpg" alt="...">
+      <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="Ace Album Cover">
+    </div>
 
   </div>
 
-  <div class="memory-card" data-framework="skullandroses">
-    <img class="back-face" src="photos/2.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-
-  </div> 
-
-  <div class="memory-card" data-framework="garcia">
-    <img class="back-face" src="photos/3.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card" data-framework="skull">
-    <img class="back-face" src="photos/4.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card"  data-framework="eyes">
-    <img class="back-face" src="photos/5.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card" data-framework="ace">
-    <img class="back-face" src="photos/6.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card" data-framework="purple">
-   
-    <img class="back-face" src="photos/1.jpeg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-    
-  </div> 
-
-  <div class="memory-card" data-framework="skullandroses">
-    <img class="back-face" src="photos/2.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card" data-framework="garcia">
-    <img class="back-face" src="photos/3.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div>
-
-  <div class="memory-card" data-framework="skull">
-    <img class="back-face" src="photos/4.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div> 
-
-  <div class="memory-card" data-framework="eyes">
-    <img class="back-face" src="photos/5.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div>  
-
-  <div class="memory-card" data-framework="ace">
-    <img class="back-face" src="photos/6.jpg" alt="...">
-    <img class="front-face" src="photos/main-bear.png" id="main-bear" alt="...">
-  </div>
-
-</div>
-
-
-
-
-
-<!--CB-modal -->
-<!-- Button trigger modal -->
-<!-- Button trigger modal -->
-
-
-<!-- Modal -->
-<div class="modal-container">
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-   
-      <div class="modal-body">
+  <!-- Modal -->
+  <div class="modal-container">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-body">
            <p class="modal-message"></p>
            <img class="rose" src="photos/leftroses.png" id="main-bear" alt="...">
            <button type="button" class="btn btn-primary">PLAY AGAIN?</button>
-        
-      </div>
-     
+          </div>
+       </div>
+     </div>
     </div>
   </div>
-</div>
-</div>
-<!--modal-->
-
-
-
-
-
+  <!-- Modal -->
 
 </body>
-
 
 </html>
 
