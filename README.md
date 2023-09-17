@@ -3,18 +3,18 @@
 ![11](https://github.com/jennherrarte/dead-head-memory-game/assets/36706323/c50fb6f0-db15-4350-9dbd-658def415f95)
 
 ***
-# 🎸 Game Description:
+# 🎸 Game Description
 
 Calling all Dead Heads! Test your memory with the DEAD HEAD MEMORY GAME. In this memory game, you will be playing against the computer to match up 6 possible pairs of cards containing The Grateful Dead album covers. When the cards are all matched, the player with the most pairs will be declared the winner.
 
 ***
-# 🤔 What I would do differently now: 
+# 🤔 What I would do differently now
  
 * I would implement a framework or library, like React or Vue, to create a library of reusable components and manage state.
 * I would use Sass to implement mixins and functions. 
   
 ***
-# 📖 User Story: 
+# 📖 User Story
 
 * The user will be playing against the computer in the DEADHEAD MEMORY GAME. 
 * The human player will go first, followed by the computer. 
