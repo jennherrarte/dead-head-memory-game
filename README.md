@@ -10,13 +10,9 @@ Calling all Dead Heads! Test your memory with the DEAD HEAD MEMORY GAME. In this
 ***
 # 🤔 What I would do differently now: 
  
-* The user will be playing against the computer in the DEADHEAD MEMORY GAME. 
-* The human player will go first, followed by the computer. 
-* If either player matches a pair of cards, their score gains one point. 
-* This process will repeat itself until all 6 pairs are matched. 
-* When all the cards are matched, the player with the most matching pairs is declared the winner. 
-* After each round, the user will be asked if they want to play again. 
-
+* I would implement a framework or library, like React or Vue, to create a library of reusable components and manage state.
+* I would use Sass to implement mixins and functions. 
+  
 ***
 # 📖 User Story: 
 
